@@ -1,0 +1,42 @@
+---
+title: "Econ610Hw2"
+author: "Chris Kalra"
+date: "8/27/2018"
+output: html_document
+---
+
+```{r}
+#2
+cups=c(2.57, 2.5, 2.35, 2.25, 2.11, 2.06, 2.02, 2.2)
+price=c(.77, .74, .72, .76, 1.08, 1.2, 1.2, .75)
+regr=lm(cups~price)
+regr
+plot(price, cups, xlab="Price per pound of coffee", ylab="Cups of coffee consumed daily",
+     main = "Intercept = 2.9246")
+abline(regr)
+#text(0,2.9246)  ----------- find out how to label the intercept!
+sum(resid(regr))
+fitted(regr)
+#d)
+2.9246-.7392*2
+#e)
+summary(regr)
+```
+
+```{r}
+#3
+
+data
+mean(data$fare)
+mean(data$dist)
+min(data$fare) ; max(data$fare)
+airplane=lm(data$fare ~ data$dist)
+airplane
+plot(data$dist, data$fare, xlab = "Distance", ylab = "Airfare", main = "Intercept = 103.26")
+abline(airplane, col="red")
+summary(airplane)
+#i)
+logfare=log(data$fare, base=exp(1))
+logdist=log(data$dist, base = exp(1))
+
+```
